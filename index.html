@@ -168,8 +168,7 @@ input {
 <button onclick="showLetter()">💌 Open Letter</button>
 <button onclick="showProposal()">💍 Proposal</button>
 <button onclick="showSurprise()">🎁 Surprise</button>
-<button onclick="showPhotos()">📸 Our Photos</button>
-</div>
+<button onclick="showPhotoLock()">📸 Our Photos</button></div>
 
 <!-- LETTER -->
 <div id="letter" class="box">
@@ -216,6 +215,19 @@ style="position:absolute;">NO 😜</button>
 <p id="quizResult"></p>
 
 <button onclick="goBack('surprise')">🔙 Back</button>
+</div>
+    <!-- PHOTO LOCK -->
+<div id="photoLock" class="box">
+<h2>🔒 Private Memories</h2>
+<p>Enter our secret code to unlock our photos 💖</p>
+
+<input type="password" id="photoPassword" placeholder="Enter code">
+
+<br><br>
+<button onclick="unlockPhotos()">Unlock 🔓</button>
+
+<br><br>
+<button onclick="goBack('photoLock')">🔙 Back</button>
 </div>
 <!-- PHOTO GALLERY -->
 <div id="photos" class="box">
@@ -395,6 +407,23 @@ function createConfetti(){
         setTimeout(()=>conf.remove(),3000);
     }
 }
+    function showPhotoLock(){
+    hideMain();
+    document.getElementById("photoLock").style.display = "block";
+}
+
+function unlockPhotos(){
+
+    var password = document.getElementById("photoPassword").value;
+
+    if(password === "0818"){   // change this code if you want
+        document.getElementById("photoLock").style.display = "none";
+        document.getElementById("photos").style.display = "block";
+    }
+    else{
+        alert("Wrong code baby 😜 try again");
+    }
+}
 /* AUTO SLIDESHOW */
 let currentSlide = 0;
 const slides = document.querySelectorAll(".slide");
@@ -406,10 +435,12 @@ setInterval(function(){
         slides[currentSlide].classList.add("active");
     }
 }, 3000); // changes every 3 seconds
+    
 
 </script>
 </body>
 </html>
+
 
 
 
