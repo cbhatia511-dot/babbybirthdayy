@@ -380,11 +380,9 @@ const countdownInterval = setInterval(function(){
     const popup = document.getElementById("birthdayPopup");
     popup.style.display = "flex";
 
-    launchFireworks();
-
     setTimeout(function(){
         popup.style.display = "none";
-    },4000);// popup visible for 4 seconds
+    },4000); // popup visible for 4 seconds
 }
 },1000);
 
@@ -547,30 +545,12 @@ setInterval(function(){
     hideMain();
     document.getElementById("wishes").style.display = "block";
 }   
-    function launchFireworks(){
-
-    for(let i=0;i<30;i++){
-
-        const fire = document.createElement("div");
-        fire.className="firework";
-
-        fire.style.left = Math.random()*100 + "vw";
-        fire.style.top = Math.random()*100 + "vh";
-
-        fire.style.setProperty("--x",(Math.random()*200-100)+"px");
-        fire.style.setProperty("--y",(Math.random()*200-100)+"px");
-
-        fire.style.background = "hsl(" + Math.random()*360 + ",100%,50%)";
-
-        document.body.appendChild(fire);
-
-        setTimeout(()=>fire.remove(),1000);
-    }
-}
+    
 
 </script>
 </body>
 </html>
+
 
 
 
