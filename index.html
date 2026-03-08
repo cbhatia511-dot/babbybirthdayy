@@ -171,6 +171,27 @@ input {
     from{opacity:0;}
     to{opacity:1;}
 }
+    #birthdayPopup{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: linear-gradient(135deg,#ff9acb,#ffcce6);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    font-size:50px;
+    color:white;
+    z-index:99999;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
 </style>
 </head>
 
@@ -180,6 +201,10 @@ input {
 <div id="countdownScreen">
     ⏳ Countdown To Our Special Moment 💖
     <div id="timer"></div>
+</div>
+    <!-- BIRTHDAY POPUP -->
+<div id="birthdayPopup">
+🎉 Happy Birthday My Princess 💖
 </div>
 
 <audio id="song" src="birthday.mp3" loop></audio>
@@ -329,9 +354,16 @@ const countdownInterval = setInterval(function(){
         seconds + "s ";
 
     if(distance < 0){
-        clearInterval(countdownInterval);
-        countdownScreen.style.display = "none";
-    }
+    clearInterval(countdownInterval);
+    countdownScreen.style.display = "none";
+
+    const popup = document.getElementById("birthdayPopup");
+    popup.style.display = "flex";
+
+    setTimeout(function(){
+        popup.style.display = "none";
+    },4000); // popup visible for 4 seconds
+}
 },1000);
 
 /* Floating Hearts */
@@ -498,6 +530,7 @@ setInterval(function(){
 </script>
 </body>
 </html>
+
 
 
 
